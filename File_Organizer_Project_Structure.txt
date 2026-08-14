@@ -1,0 +1,161 @@
+FILE ORGANIZER PROJECT
+
+PROJECT GOAL
+
+Create a command-line file organizer that scans a folder, identifies the files inside it, groups them by type, displays a summary, and later organizes them into category folders.
+
+This project is meant to improve your ability to work with the computer's file system using pathlib.
+
+
+MAIN SKILLS TO PRACTISE
+
+1. pathlib
+2. File and folder paths
+3. Loops
+4. Conditionals
+5. Dictionaries
+6. Functions
+7. Input validation
+8. Sorting with key=
+9. Lambda functions
+10. Error handling
+11. Git and GitHub workflow
+
+
+PROJECT STRUCTURE
+
+1. Create this folder structure:
+
+file_organizer/
+|
+|-- main.py
+|-- functions.py
+|-- README.md
+
+
+MAIN PROGRAM FLOW
+
+1. Ask the user for a folder path.
+2. Check that the folder exists.
+3. Check that the path points to a directory.
+4. Scan through the contents of the folder.
+5. Ignore folders at first and only work with files.
+6. Read each file's filename, extension, and full path.
+7. Display the files that were found.
+8. Count how many files belong to each extension or category.
+9. Display a summary.
+10. Later, allow the user to organize the files into folders such as Images, Documents, Code, Audio, Video, Archives, and Other.
+11. Add a preview mode before moving files.
+12. Handle duplicate filenames safely.
+
+
+BUILD STEPS
+
+1. Create the project folder.
+2. Create main.py and functions.py.
+3. Initialize Git in the project folder.
+4. Ask the user to enter the path of a folder.
+5. Convert the entered path into a Path object.
+6. Check whether the path exists.
+7. Check whether the path is a directory.
+8. Loop through the folder contents using pathlib.
+9. Only keep items that are files.
+10. Display each file name.
+11. Display each file extension.
+12. Create a dictionary that counts how many files exist for each extension.
+13. Display the extension summary.
+14. Create categories for common file types.
+15. Assign each extension to a category.
+16. Count how many files belong to each category.
+17. Display the category summary.
+18. Sort the summary using key= or a lambda function.
+19. Create category folders when they do not already exist.
+20. Add a preview mode that shows where each file would move.
+21. Ask the user to confirm before moving files.
+22. Move each file into its correct category folder.
+23. Add protection for duplicate filenames.
+24. Add error handling for invalid paths and file operations.
+25. Test the program using a temporary folder with sample files.
+26. Write a README explaining what the program does.
+27. Make a final Git commit and push the project to GitHub.
+
+
+PATHLIB CONCEPTS TO USE
+
+1. Path()
+   Creates a Path object.
+
+2. Path.exists()
+   Checks whether a path exists.
+
+3. Path.is_dir()
+   Checks whether a path is a directory.
+
+4. Path.iterdir()
+   Loops through items inside a directory.
+
+5. Path.is_file()
+   Checks whether an item is a file.
+
+6. Path.name
+   Gets the full filename.
+
+7. Path.suffix
+   Gets the file extension.
+
+8. Path.mkdir()
+   Creates a folder.
+
+9. Path.rename()
+   Can be used to move or rename files.
+
+
+FIRST MILESTONE
+
+1. Ask the user for a folder path.
+2. Confirm the folder exists.
+3. Confirm it is a directory.
+4. Scan through the folder.
+5. Ignore subfolders.
+6. Print each file name.
+7. Print each file extension.
+
+Do not move any files yet.
+
+The goal of the first milestone is only to correctly inspect a folder.
+
+
+SECOND MILESTONE
+
+1. Count file extensions.
+2. Store the counts in a dictionary.
+3. Display a clean summary.
+4. Sort the results.
+
+
+THIRD MILESTONE
+
+1. Create file categories.
+2. Decide which extensions belong to each category.
+3. Preview where each file will be moved.
+4. Ask for confirmation.
+5. Move the files.
+
+
+FINAL MILESTONE
+
+1. Handle duplicate filenames.
+2. Improve error handling.
+3. Clean up functions and docstrings.
+4. Test the full program.
+5. Write the README.
+6. Push the finished project to GitHub.
+
+
+IMPORTANT
+
+1. Build one feature at a time.
+2. Test each feature before moving to the next step.
+3. Do not begin by moving real files.
+4. First test the organizer on a temporary folder containing sample files.
+5. Use Git commits whenever you complete a working feature.
