@@ -111,3 +111,43 @@ def create_category_folders(folder_path, files):
 
         if not category_folder.exists():
             category_folder.mkdir()
+
+def preview_moves(files, folder_path):
+    """Previews each file's destination and asks the user to confirm the file moves."""
+    if not files:
+        print("\nFolder is empty!\n")
+        return False
+    for file in files:
+        category = categorize_file(file)
+        print(f"{file.name} --> {category}")
+    
+    choice = input("Would you like to confirm these changes? (Y/N)").strip().upper()
+    if choice == 'Y':
+        return True
+    elif choice == 'N':
+        return False
+    else:
+        print("\nInvalid choice.\n")
+        return False
+
+def move_files(files, folder_path, confirmed):
+    """Moves confirmed files into their category folders while skipping duplicates."""
+    if not confirmed:
+        return
+    
+    moved_count = 0
+    skipped_count = 0
+
+    for file in files:
+        category = categorize_file(file)
+        category_folder = folder_path / category
+        destination = category_folder / file.name
+    
+        if not destination.exists():
+            file.rename(destination)
+            moved_count += 1
+        else:
+            skipped_count += 1
+    
+    print(f"\n[{moved_count}] Files Moved Successfully!")
+    print(f"[{skipped_count}] Files Skipped.\n")
