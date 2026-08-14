@@ -68,26 +68,46 @@ def count_extensions(files):
     }
 
     for file in files:
-        extension = file.suffix.lower()
-        
-        if extension in images:
-            category_counts["Images"] += 1
-        elif extension in documents:
-            category_counts["Documents"] += 1
-        elif extension in code:
-            category_counts["Code"] += 1
-        elif extension in audio:
-            category_counts["Audio"] += 1
-        elif extension in video:
-            category_counts["Video"] += 1
-        elif extension in archives:
-            category_counts["Archives"] += 1
-        elif extension in executables:
-            category_counts["Executables"] += 1
-        elif not extension:
-            category_counts["No Extension"] += 1
-        else:
-            category_counts["Other"] += 1
+        category = categorize_file(file)
+        category_counts[category] += 1
+
         
     return category_counts
 
+def display_extension_summary(category_counts):
+    """Displays the number of files in each category."""
+    for category, count in category_counts.items():
+        print(f"{category}: {count}")
+    
+def categorize_file(file):
+    """Returns the category of a file based on its extension."""
+
+    extension = file.suffix.lower()
+
+    if extension in images:
+        return "Images"
+    elif extension in documents:
+        return "Documents"
+    elif extension in code:
+        return "Code"
+    elif extension in audio:
+        return "Audio"
+    elif extension in video:
+        return "Video"
+    elif extension in archives:
+        return "Archives"
+    elif extension in executables:
+        return "Executables"
+    elif not extension:
+        return "No Extension"
+    else:
+        return "Other"
+
+def create_category_folders(folder_path, files):
+    """Creates category folders for files if they do not already exist."""
+    for file in files:
+        category = categorize_file(file)
+        category_folder = folder_path / category
+
+        if not category_folder.exists():
+            category_folder.mkdir()
