@@ -1,7 +1,7 @@
 from pathlib import Path
 
 images = [".jpg", ".jpeg", ".png", ".gif", ".webp"]
-documents = [".pdf", ".txt", ".doc", ".docx", ".ppt", ".pptx"]
+documents = [".pdf", ".txt", ".doc", ".docx", ".ppt", ".pptx", ".csv"]
 code = [".py", ".js", ".html", ".css", ".java", ".c", ".cpp"]
 audio = [".mp3", ".wav", ".aac", ".flac", ".m4a"]
 video = [".mp4", ".mov", ".avi", ".mkv", ".webm"]
@@ -46,12 +46,14 @@ def scan_files(folder_path):
 
 def display_files(files):
     """Displays all file names and file sizes"""
+
+    print("\nFiles:\n")
     if not files:
         print("\nThis folder is empty!\n")
         return
 
     for file in files:
-        print(f"{file.name} | {file.stat().st_size}")
+        print(f"{file.name} | {file.stat().st_size} bytes")
 
 def count_extensions(files):
     """Counts files by category based on their file extensions."""
@@ -76,6 +78,7 @@ def count_extensions(files):
 
 def display_extension_summary(category_counts):
     """Displays the number of files in each category."""
+    print("\nFile Count:    \n")
     for category, count in category_counts.items():
         print(f"{category}: {count}")
     
@@ -114,6 +117,7 @@ def create_category_folders(folder_path, files):
 
 def preview_moves(files, folder_path):
     """Previews each file's destination and asks the user to confirm the file moves."""
+    print("\nChanges:   \n")
     if not files:
         print("\nFolder is empty!\n")
         return False
